@@ -49,18 +49,14 @@ class Linked_list(object):
     def insert_arbitratry(self, position, new):
         previous = current = self.head
         new = Node(new, next)
-        while current is not None:
-            if current.data == position:
-                current.data = new.data
-                current.next = new.next
-                previous=previous.next.next
-                previous=current.next
-                print 'added %s after %s' %(new, previous.data)
-                break
-            else:
-                previous = previous.next
-                current = current.next
-                
+        while position is not 0:
+            current=current.next
+            previous=previous.next
+            position-=1
+            print position, previous, current
+            previous.next=new.next
+        new.next= current.next
+
 
 s=Linked_list()
 s.append(31)
